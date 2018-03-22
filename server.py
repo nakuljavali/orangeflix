@@ -1,5 +1,5 @@
 import os
-from flask import Flask
+from flask import Flask, render_template, redirect
 import OrangeFlix as of
 import webbrowser
 
@@ -10,8 +10,7 @@ def server():
     oFlix = of.OrangeFlix()
     oFlix.getTime()
     oFlix.addVideos()
-    webbrowser.open(oFlix.createPlaylist())
-    return 'Success'
+    return redirect(oFlix.createPlaylist())
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
