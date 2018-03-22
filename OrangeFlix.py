@@ -12,11 +12,18 @@ class OrangeFlix:
                    'UC2C_jShtL725hvbm1arSV9w', # CGP Grey
                    'UCP5tjEmvPItGyLhmjdwP7Ww', # Real Life Lore
                    'UCsXVk37bltHxD1rDPwtNM8Q', # Kurzgesagt
-                   'UCYO_jab_esuFRV4b17AJtAw'] # 3Blue1Brown
+                   'UCYO_jab_esuFRV4b17AJtAw', # 3Blue1Brown
+                   'UCH4BNI0-FOK2dMXoFtViWHw', # Its Okay to be smart
+                   'UCtwKon9qMt5YLVgQt1tvJKg', # Objectivity
+                   'UCzR-rom72PHN9Zg7RML9EbA', # PBS Eons
+                   'UCiDJtJKMICpb9B1qf7qjEOA', # Tested
+                   'UCoxcjq-8xIDTYp3uz647V5A', # Numberphile
+                   'UC64UiPJwM_e9AqAd7RiD7JA', # Today I Found Out
+                   'UC7_gcs09iThXybpVgjHZ_7g'] # PBS Space Time
     videoList = []
 
-    def getTime(self):
-        yesterday = datetime.datetime.now() - datetime.timedelta(days = 1)
+    def setTime(self, days = 1):
+        yesterday = datetime.datetime.now() - datetime.timedelta(days = days)
         self.formattedTime =  yesterday.strftime("%Y-%m-%dT%H:%M:%SZ")
 
     def addVideos(self):
@@ -42,4 +49,5 @@ class OrangeFlix:
         res = 'https://www.youtube.com/watch_videos?video_ids='
         for video in self.videoList:
             res += video + ','
+        print "Playlist created: " + res
         return res

@@ -8,7 +8,7 @@ app = Flask(__name__)
 @app.route('/')
 def server():
     oFlix = of.OrangeFlix()
-    oFlix.getTime()
+    oFlix.setTime()
     oFlix.addVideos()
     return redirect(oFlix.createPlaylist())
 
