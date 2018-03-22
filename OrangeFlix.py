@@ -6,7 +6,13 @@ import os
 class OrangeFlix:
     formattedTime = datetime.datetime.now()
     channelList = ['UCajXeitgFL-rb5-gXI-aG8Q', # The Great Big Story
-                   'UCmmPgObSUPw1HL2lq6H4ffA'] # Geography Now
+                   'UCmmPgObSUPw1HL2lq6H4ffA', # Geography Now
+                   'UCuCkxoKLYO_EQ2GeFtbM_bw', # Half as Interesting
+                   'UC9RM-iSvTu1uPJb8X5yp3EQ', # Wendover Productions
+                   'UC2C_jShtL725hvbm1arSV9w', # CGP Grey
+                   'UCP5tjEmvPItGyLhmjdwP7Ww', # Real Life Lore
+                   'UCsXVk37bltHxD1rDPwtNM8Q', # Kurzgesagt
+                   'UCYO_jab_esuFRV4b17AJtAw'] # 3Blue1Brown
     videoList = []
 
     def getTime(self):
