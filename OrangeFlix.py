@@ -16,7 +16,6 @@ class OrangeFlix:
                    'UCH4BNI0-FOK2dMXoFtViWHw', # Its Okay to be smart
                    'UCtwKon9qMt5YLVgQt1tvJKg', # Objectivity
                    'UCzR-rom72PHN9Zg7RML9EbA', # PBS Eons
-                   'UCiDJtJKMICpb9B1qf7qjEOA', # Tested
                    'UCoxcjq-8xIDTYp3uz647V5A', # Numberphile
                    'UC64UiPJwM_e9AqAd7RiD7JA', # Today I Found Out
                    'UC7_gcs09iThXybpVgjHZ_7g'] # PBS Space Time
