@@ -1,3 +1,4 @@
+from sets import Set
 import urllib2
 import datetime
 import json
@@ -21,7 +22,7 @@ class OrangeFlix:
                    'UC7_gcs09iThXybpVgjHZ_7g'] # PBS Space Time
 
     userList = ['scishow']
-    videoList = []
+    videoList = Set()
 
     def setTime(self, days = 1):
         yesterday = datetime.datetime.now() - datetime.timedelta(days = days)
@@ -60,12 +61,11 @@ class OrangeFlix:
 
             for item in items:
                 id = item['id']['videoId']
-                self.videoList.append(id)
+                self.videoList.add(id)
 
     def createPlaylist(self):
         res = 'https://www.youtube.com/watch_videos?video_ids='
         for video in self.videoList:
             res += video + ','
         print "Playlist created: " + res
-        self.videoList = []
         return res
