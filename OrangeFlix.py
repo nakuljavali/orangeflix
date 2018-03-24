@@ -68,4 +68,5 @@ class OrangeFlix:
         for video in self.videoList:
             res += video + ','
         print "Playlist created: " + res
+        self.videoList = []
         return res
