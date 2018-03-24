@@ -1,5 +1,5 @@
 from sets import Set
-import urllib2
+import requests
 import datetime
 import json
 import os
@@ -35,14 +35,12 @@ class OrangeFlix:
                      "forUsername={0}&"
                      "key={1}".format(user, os.environ['ORANGEFLIX_KEY'])
                      )
-            response = urllib2.urlopen(query)
-            res = response.read()
-            items = json.loads(res)["items"]
+            response = requests.get(query)
+            items = response.json()["items"]
             for item in items:
                 id = item['id']
                 self.channelList.append(id)
                 print id
-            response.close()
 
     def addVideos(self):
         for channel in self.channelList:
@@ -55,9 +53,8 @@ class OrangeFlix:
                      "type=video&"
                      "key={2}".format(channel, self.formattedTime, os.environ['ORANGEFLIX_KEY'])
                     )
-            response = urllib2.urlopen(query)
-            res = response.read()
-            items = json.loads(res)["items"]
+            response = requests.get(query)
+            items = response.json()["items"]
 
             for item in items:
                 id = item['id']['videoId']

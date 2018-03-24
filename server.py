@@ -9,7 +9,7 @@ app = Flask(__name__)
 def server():
     oFlix = of.OrangeFlix()
     oFlix.setTime()
-    #oFlix.getAndAddChannelIdsFromUserList()
+    oFlix.getAndAddChannelIdsFromUserList()
     oFlix.addVideos()
     playlist = oFlix.createPlaylist()
     del oFlix
