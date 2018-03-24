@@ -11,7 +11,9 @@ def server():
     oFlix.setTime()
     #oFlix.getAndAddChannelIdsFromUserList()
     oFlix.addVideos()
-    return redirect(oFlix.createPlaylist())
+    playlist = oFlix.createPlaylist()
+    del oFlix
+    return redirect(playlist)
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
