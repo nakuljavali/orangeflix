@@ -19,11 +19,29 @@ class OrangeFlix:
                    'UCoxcjq-8xIDTYp3uz647V5A', # Numberphile
                    'UC64UiPJwM_e9AqAd7RiD7JA', # Today I Found Out
                    'UC7_gcs09iThXybpVgjHZ_7g'] # PBS Space Time
+
+    userList = ['scishow']
     videoList = []
 
     def setTime(self, days = 1):
         yesterday = datetime.datetime.now() - datetime.timedelta(days = days)
         self.formattedTime =  yesterday.strftime("%Y-%m-%dT%H:%M:%SZ")
+
+    def getAndAddChannelIdsFromUserList(self):
+        for user in self.userList:
+            query = ("https://www.googleapis.com/youtube/v3/channels?"
+                     "part=contentDetails&"
+                     "forUsername={0}&"
+                     "key={1}".format(user, os.environ['ORANGEFLIX_KEY'])
+                     )
+            response = urllib2.urlopen(query)
+            res = response.read()
+            items = json.loads(res)["items"]
+            for item in items:
+                id = item['id']
+                self.channelList.append(id)
+                print id
+            response.close()
 
     def addVideos(self):
         for channel in self.channelList:
@@ -43,6 +61,7 @@ class OrangeFlix:
             for item in items:
                 id = item['id']['videoId']
                 self.videoList.append(id)
+            response.close()
 
     def createPlaylist(self):
         res = 'https://www.youtube.com/watch_videos?video_ids='
