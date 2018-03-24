@@ -61,7 +61,6 @@ class OrangeFlix:
             for item in items:
                 id = item['id']['videoId']
                 self.videoList.append(id)
-            response.close()
 
     def createPlaylist(self):
         res = 'https://www.youtube.com/watch_videos?video_ids='
